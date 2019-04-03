@@ -1,0 +1,128 @@
+= Tasarım Kalıpları
+
+== Singleton
+.Kullanici.java
+[source,java]
+
+package designpattern;
+public class Kullanici {
+   public String k_adi;
+   public String k_email;
+   public String k_sifre;
+   public String k_nick;
+   public String k_cinsiyet;
+   public int k_id;
+   
+Kullanıcı isimli bir class ve bu classta kullanılacak değişkenleri tanımladım.
+
+[source,java]
+   private static Kullanici instance = null;
+   
+Nesnemizin daha önceden oluşturulmadığını anlayabilmemiz için statik özelliği tanımlıyoruz.
+
+[source,java]
+   private Kullanici(){}
+   
+construct(Kurucu) metodumuz.
+
+[source,java]
+   public static Kullanici getInstance(){
+        if(instance == null)
+        {
+            instance  = new Kullanici();
+        }
+      return instance;
+   }
+   
+Singleton kalıbımızı oluşturduk.Bu Singleton yaklaşımında nesnemiz biz isteğimiz zaman oluşturulmakta ve aynı nesnenin oluşup oluşmadığı kontrol ederek eğer oluşmadıysa nesnenin oluşturulmasını sağlamaktayız.Bu sayede aynı nesnenin ikinci kez oluşturulmasının önüne geçmekteyiz. 
+
+[source,java]
+  public void uyeprofilgoruntule(){
+      System.out.println("Profil Görüntülendi");
+   }
+ Sınıfımız içinde kullanacağımız bir fonksiyon tanımlıyoruz.
+
+[source,java]
+  public static void main(String[] args) {
+      Kullanici object = Kullanici.getInstance(); 
+      Kullanici object2 = Kullanici.getInstance(); 
+      Kullanici object3 = Kullanici.getInstance(); 
+      object.uyeprofilgoruntule();
+      object2.uyeprofilgoruntule();
+      object3.uyeprofilgoruntule();
+   }
+ }
+Kullanıcı sınıfımızdan nesne tanımlıyoruz.Bu nesneler ile aynı metodu çağırabiliyoruz.
+
+
+== Factory Pattern
+
+.EntryKategorisi.java
+[source,java]
+ package designpattern;
+ public interface EntryKategorisi {
+   void Sirala();
+ }
+
+EntryKategorisi isimli bir interface oluşturduk bu sayede benzerlik durumunu belirleyeceğiz.Ortak kullanılacak olan metod tanımladık.
+
+[source,java]
+ class siyaset implements EntryKategorisi {
+    @Override
+    public void Sirala() {
+        System.out.println("Siyaset ile ilgili entryler sıralandı");
+    }
+ }
+ class spor implements EntryKategorisi {
+     @Override
+    public void Sirala() {
+        System.out.println("Spor ile ilgili entryler sıralandı");
+    }
+ }
+ class seyahat implements EntryKategorisi {
+    @Override
+    public void Sirala() {
+        System.out.println("Seyahat ile ilgili entryler sıralandı");
+    }
+ }
+ class bilim implements EntryKategorisi {
+     @Override
+    public void Sirala() {
+        System.out.println("Bilim ile ilgili entryler sıralandı");
+    }
+ }
+ class edebiyat implements EntryKategorisi {
+   @Override
+    public void Sirala() {
+        System.out.println("Edebiyat ile ilgili entryler sıralandı");
+    }
+ }
+
+Birden fazla Entry Kategorisi var fakat bu sınıflar EntryKategorisi interfacesinden kalıtarak aynı metodu kullanmaktadırlar.
+
+[source,java]
+ class Main {
+    public static void main(String[] args) {
+        try {
+            siyaset Siyaset = (siyaset) EntryFactory.createEntry(siyaset.class);
+            Siyaset.Sirala();
+            bilim Bilim = (bilim) EntryFactory.createEntry(bilim.class);
+            Bilim.Sirala();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+ }
+
+Sınıflarımızı oluşturuyoruz ve metodumuzu çağırıyoruz.
+
+.EntryFactory.java
+[source,java]
+ package designpattern;
+ public class EntryFactory {
+      public static EntryKategorisi createEntry(Class aClass) throws IllegalAccessException, InstantiationException {
+            return (EntryKategorisi) aClass.newInstance();
+    }
+ }
+ 
+ComputerFactory sınıfının bir tane static metodu var bu yordam diğer sınıfları oluştururken her seferinde tekrar tekrar oluşturmak yerine statik bir biçimde daha optimize olarak oluşturmaktadır.

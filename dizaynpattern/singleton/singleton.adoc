@@ -1,0 +1,54 @@
+== Singleton
+.Kullanici.java
+[source,java]
+
+package designpattern;
+public class Kullanici {
+   public String k_adi;
+   public String k_email;
+   public String k_sifre;
+   public String k_nick;
+   public String k_cinsiyet;
+   public int k_id;
+   
+Kullanıcı isimli bir class ve bu classta kullanılacak değişkenleri tanımladım.
+
+[source,java]
+   private static Kullanici instance = null;
+   
+Nesnemizin daha önceden oluşturulmadığını anlayabilmemiz için statik özelliği tanımlıyoruz.
+
+[source,java]
+   private Kullanici(){}
+   
+construct(Kurucu) metodumuz.
+
+[source,java]
+   public static Kullanici getInstance(){
+        if(instance == null)
+        {
+            instance  = new Kullanici();
+        }
+      return instance;
+   }
+   
+Singleton kalıbımızı oluşturduk.Bu Singleton yaklaşımında nesnemiz biz isteğimiz zaman oluşturulmakta ve aynı nesnenin oluşup oluşmadığı kontrol ederek eğer oluşmadıysa nesnenin oluşturulmasını sağlamaktayız.Bu sayede aynı nesnenin ikinci kez oluşturulmasının önüne geçmekteyiz. 
+
+[source,java]
+  public void uyeprofilgoruntule(){
+      System.out.println("Profil Görüntülendi");
+   }
+ Sınıfımız içinde kullanacağımız bir fonksiyon tanımlıyoruz.
+
+[source,java]
+  public static void main(String[] args) {
+      Kullanici object = Kullanici.getInstance(); 
+      Kullanici object2 = Kullanici.getInstance(); 
+      Kullanici object3 = Kullanici.getInstance(); 
+      object.uyeprofilgoruntule();
+      object2.uyeprofilgoruntule();
+      object3.uyeprofilgoruntule();
+   }
+ }
+Kullanıcı sınıfımızdan nesne tanımlıyoruz.Bu nesneler ile aynı metodu çağırabiliyoruz.
+

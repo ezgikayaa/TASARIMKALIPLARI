@@ -1,0 +1,71 @@
+== Factory Pattern
+
+.EntryKategorisi.java
+[source,java]
+ package designpattern;
+ public interface EntryKategorisi {
+   void Sirala();
+ }
+
+EntryKategorisi isimli bir interface oluşturduk bu sayede benzerlik durumunu belirleyeceğiz.Ortak kullanılacak olan metod tanımladık.
+
+[source,java]
+ class siyaset implements EntryKategorisi {
+    @Override
+    public void Sirala() {
+        System.out.println("Siyaset ile ilgili entryler sıralandı");
+    }
+ }
+ class spor implements EntryKategorisi {
+     @Override
+    public void Sirala() {
+        System.out.println("Spor ile ilgili entryler sıralandı");
+    }
+ }
+ class seyahat implements EntryKategorisi {
+    @Override
+    public void Sirala() {
+        System.out.println("Seyahat ile ilgili entryler sıralandı");
+    }
+ }
+ class bilim implements EntryKategorisi {
+     @Override
+    public void Sirala() {
+        System.out.println("Bilim ile ilgili entryler sıralandı");
+    }
+ }
+ class edebiyat implements EntryKategorisi {
+   @Override
+    public void Sirala() {
+        System.out.println("Edebiyat ile ilgili entryler sıralandı");
+    }
+ }
+
+Birden fazla Entry Kategorisi var fakat bu sınıflar EntryKategorisi interfacesinden kalıtarak aynı metodu kullanmaktadırlar.
+
+[source,java]
+ class Main {
+    public static void main(String[] args) {
+        try {
+            siyaset Siyaset = (siyaset) EntryFactory.createEntry(siyaset.class);
+            Siyaset.Sirala();
+            bilim Bilim = (bilim) EntryFactory.createEntry(bilim.class);
+            Bilim.Sirala();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+ }
+
+Sınıflarımızı oluşturuyoruz ve metodumuzu çağırıyoruz.
+
+.EntryFactory.java
+[source,java]
+ package designpattern;
+ public class EntryFactory {
+      public static EntryKategorisi createEntry(Class aClass) throws IllegalAccessException, InstantiationException {
+            return (EntryKategorisi) aClass.newInstance();
+    }
+ }
+ 
+ComputerFactory sınıfının bir tane static metodu var bu yordam diğer sınıfları oluştururken her seferinde tekrar tekrar oluşturmak yerine statik bir biçimde daha optimize olarak oluşturmaktadır.
