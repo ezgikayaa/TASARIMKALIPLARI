@@ -1,0 +1,76 @@
+@startuml
+title Class Diagram
+rectangle AbstractFactoryPattern {
+abstract Kullanicilar <<abstract>> {
+  + {abstract} String getAdi()
+  + {abstract} String getEmail()
+  + {abstract} String getNick()
+  + String toString()
+ 
+}
+class Uye{
+  -String adi
+  -String email
+  -String nick
+  +Uye(adi:String, email:String,nick:String)
+  +String getAdi()
+  +String getEmail()
+  +String getNick()
+  
+}
+class Yonetici{
+  -String adi
+  -String email
+  -String nick
+  +Yonetici(adi:String, email:String,nick:String)
+  +String getAdi()
+  +String getEmail()
+  +String getNick()
+}
+
+
+interface KullanicilarAbstractFactory{
+   +Kullanicilar createKullanicilar()
+}
+
+class UyeFactory{
+  -String adi
+  -String email
+  -String nick
+  +UyeFactory(adi:String, email:String,nick:String)
+  +String getAdi()
+  +String getEmail()
+  +String getNick()
+  +Kullanicilar createKullanicilar()
+}
+
+class YoneticiFactory{
+  -String adi
+  -String email
+  -String nick
+  +YoneticiFactory(adi:String, email:String,nick:String)
+  +String getAdi()
+  +String getEmail()
+  +String getNick()
+  +Kullanicilar createKullanicilar()
+}
+
+class KullanicilarFactory{
+  +{static} Kullanicilar getKullanicilar(KullanicilarAbstractFactory factory)
+}
+class TestFactory{
+   +{static} void main{}
+   -{static} void testAbstractFactory()
+}
+Kullanicilar <|.. Uye
+Kullanicilar <|.. Yonetici
+KullanicilarAbstractFactory <|.. UyeFactory
+KullanicilarAbstractFactory <|.. YoneticiFactory
+KullanicilarFactory .right.> Kullanicilar:uses
+TestFactory .right.> KullanicilarFactory:uses
+Yonetici ..> KullanicilarAbstractFactory:creates
+Uye ..>KullanicilarAbstractFactory:creates
+
+
+
+@enduml

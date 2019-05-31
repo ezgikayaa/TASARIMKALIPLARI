@@ -1,0 +1,48 @@
+@startuml
+title Classes - Class Diagram
+rectangle ObserverPattern {
+interface Observable <<interface>> {
+
+  + void addObserver(Observer)
+  + void removeObserver(Observer)
+  + void notifyObserver(Observer)
+}
+
+interface Observer <<interface>> {
+
+  + void notify()
+
+}
+
+class Yorum {
+  - Observable observable
+  + void notify()
+  + void removeObserver() 
+
+}
+
+class GundemBasligi {
+  - Observable observable
+  + void notify()
+  + void setObservable()
+  + void removeObserver() 
+
+}
+
+class NoticeObservable  {
+  - List<Observer> observerList
+  - String message
+  + void addObserver()
+  + void removeObserver()
+  + void notifyObserver()
+
+} 
+}
+
+
+Observer <|.. Yorum
+Observer <|.. GundemBasligi
+Observable <|.. NoticeObservable
+Observable o-left- Observer 
+
+@enduml

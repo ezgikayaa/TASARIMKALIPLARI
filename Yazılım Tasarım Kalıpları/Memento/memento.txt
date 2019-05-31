@@ -1,0 +1,40 @@
+@startuml
+title Class Diagram
+rectangle VisitorPattern {
+
+class GündemBasligi {
+  -içerik :String
+  + void içerikAl():String
+  + void  içerikAta(içerik:String) 
+  + voidmementoYarat():GündemBasligiMemento
+  + void mementoAta(memento:GündemBasligiMemento)
+
+}
+
+class GündemBasligiMemento {
+  -içerik :String
+  + void içerikAl():String
+
+} 
+class GündemBasligiYazýmProgramý {
+  -gundembasligi :GundemBasligi
+  -gecmisListesi :List<GündemBasligiMemento>
+  + void gundembasligiYaz(yeniÝçerik:String )
+  + void geriAl()
+
+} 
+class Üye <<client>> {
+
+}
+
+
+}
+
+
+GündemBasligiMemento  "1..*" --o "1"GündemBasligiYazýmProgramý
+GündemBasligi .left..>  GündemBasligiMemento
+Üye .left.> GündemBasligi
+Üye .right.> GündemBasligiYazýmProgramý
+
+
+@enduml

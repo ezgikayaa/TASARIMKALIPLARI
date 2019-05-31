@@ -1,0 +1,39 @@
+@startuml
+title Class Diagram
+rectangle CompositPattern {
+interface Container  <<interface>> {
+
+  + Iterator getIterator()
+ 
+
+}
+interface Iterator<<interface>> {
+
+  + boolean hasNext()
+  + Object next() 
+
+}
+
+class EntryIterator{
+  + boolean hasNext()
+  + Object next() 
+} 
+
+class EntryRepository{
+ + Iterator getIterator()
+} 
+
+class IteratorDeseni{
++ void main()
+}
+
+
+
+Container <|-- EntryRepository
+Iterator <|-- EntryIterator
+EntryRepository  o-right-  EntryIterator:has
+IteratorDeseni .right.> EntryRepository:use
+
+
+
+@enduml

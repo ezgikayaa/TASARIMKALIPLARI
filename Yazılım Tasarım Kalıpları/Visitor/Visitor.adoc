@@ -1,0 +1,7 @@
+**Visitor Tasarım Deseni**
+
+Bu projede, bir sözlük sisteminde bulunan Kullanıcı hiyerarşisi bulunmaktadır. Bu hiyerarşide, Üye ve Yönetici alt sınıfları vardır. Bu sınıf hiyerarşisinde farklı işlemler yapabilmek için visitor tasarım deseni kullanılacaktır. Bu işlemler profil görüntüle ve giriş işlemleridir.
+
+Bunun için KullanıcıVisitor üst sınıfı yaratılır. Farklı tipteki profil görüntüle ve giriş işlemleri için de ProfilGoruntuleVisitor ve GirişVisitor alt sınıfları yani visitor sınıfları oluşturulur.
+
+Bu ziyaretçi sınıfları üye ve yönetici sınıfları üzerinde çeşitli işlemler yapabilirler. Sistemi deneyen Sözlük istemci sınıfı da projede yer alır.Sözlük sınıfı kullanıcı nesneleri ve ziyaretçi nesneleri oluşturur.Kullanıcı nesnelerinden ziyaretçi nesnelerinde tanımlanan işlemler yapılır.

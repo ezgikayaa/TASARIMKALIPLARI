@@ -1,0 +1,11 @@
+**Observer Tasarım Deseni**
+
+Bu projede, observer gündem başlığı veya yorum eklendiğinde uyarı verir.
+
+Yorum ve GundemBasligi sınıfları Observer arayüz sınıfından türetilir. Bu sınıflardaki notify metodu çağrıldığında, yorum ve gündem başlığı sınıflarında notify metodu çalışır
+
+Observer tasarım deseninde bir tane observable sınıfı bulunur. Bu sınıf gözlemlenen şeyi belirler. Bu projede gözlemlenen sınıfa NotifyObservable ismi verilmektedir. Bu sınıfta gözlemcileri içeren, bir tane liste tutulur. 
+
+Bu listeye ekleme yapabilen, addObserver metodu bulunur. Ayrıca listeden silmek için removeObserver ,gözlemcilere duyurmak için notifyObservable metodu bulunur. 
+
+Bu metot listedeki tüm gözlemcilerin notifyObservable metodu çağırarak, onların değişiklikten haberdar olup, ona göre bir hareket almalarını sağlar.

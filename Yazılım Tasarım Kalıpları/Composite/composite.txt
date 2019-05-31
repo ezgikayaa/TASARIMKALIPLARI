@@ -1,0 +1,40 @@
+@startuml
+title Class Diagram
+rectangle CompositPattern {
+interface Kullanýcý <<interface>> {
+
+  + void bilgiYazdýr()
+ 
+
+}
+
+class Üye {
+ - isim:String
+ - nick:String
+ + void bilgiYazdýr()
+
+
+} 
+class Yönetici {
+ - Üyeler:List<Kullanýcý>
+ + void bilgiYazdýr()
+ + void ÜyeEkle(Kullanýcý:kullanýcý)
+ + void ÜyeÇýkar(Kullanýcý:kullanýcý)
+
+} 
+
+class Sözlük <<client>> {
+}
+
+}
+
+
+
+Kullanýcý <|.. Üye
+Kullanýcý <|.. Yönetici
+Yönetici "1" o-- "0..*" Kullanýcý
+Sözlük ..>Kullanýcý
+
+
+
+@enduml

@@ -1,0 +1,13 @@
+**Memento Tasarım Deseni**
+
+* Memento tasarım deseni örneğinin konusu gündem başlığı yazan bir programın "geri al" işlevi ile ilgilidir. Bu program gündem başlığı içeriklerini GündemBasligi isimli bir sınıfta tutmaktadır.
+
+* GündemBasligi sınıfının içeriğini de, ileri ki kullanımlar için saklayan GündemBasligiMemento sınıfıdır. Bu sınıf tasarım desenindeki memento sınıfımızdır.
+
+* GündemBasligi ve her bir gündem başlığı yazma haretekini tutan GündemBasligiMemento nesnelerinin listesini tutan GündemBasligiYazımProgramı sınıfıdır. 
+
+* Bu sınıfa her bir yeni gündem başlığı içeriği geldiğinde, bu içeriğe bağlı bir tane memento nesne yaratılır ve bu nesne de, memento nesnelerin listesine eklenir.
+
+* Bu sınıftaki geriAl yordamı ise, listedeki en son gündem başlığı içeriğini tutan memento nesneyi çeker ve gündem başlığı içeriğini bu memento nesnenin içindeki içerik olarak ayarlar.
+
+* Sistemi kullanan Üye sınıfını incelersek, sırayla "Siyaset", "Edebiyat", "Bilim", "Spor" içerikleri gelmiştir. Sonra da üç kere geri al işlevi çalıştırılmıştır. Bu işlemden sonra gündem başlığı içeriğinin üç işlem gerideki "Siyaset" olduğu görülmüştür.

@@ -1,0 +1,6 @@
+**Singlenton Tasarım Deseni**
+
+Bu tasarım deseninde, bir sınıfın sistem içinde yalnızca bir tane nesnesi oluşturulabilir. Tek bir arayüz sunularak, bu nesneye yalnızca buradan erişim sağlanabilir. Bu desen kullanılarak, sistem içinde değeri değişmeyen, genel değişkenler bu oluşturulan tek nesneye konulabilir.
+
+
+Projemizde,Kullanıcı sınıfında içinde kendi tipinde nesneyi tutan static bir değişken bulunur. Bu nesneye yine static olan getInstance metodundan ulaşılabilmektedir. Sınıfın yapıcı (constructor) yordamı private şeklindedir. Yani "public" olmayarak dışarıdan erişim engellenmiş, nesne oluşumu sınıf içi ile sınırlandırılmıştır.

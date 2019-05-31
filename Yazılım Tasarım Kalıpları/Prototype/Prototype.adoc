@@ -1,0 +1,5 @@
+**Prototype Tasarım Deseni**
+
+Var olan bir nesneden, kopyalama yöntemi ile yeni nesne yaratmak için bu tasarım deseni kullanılır.
+
+Projemizde, kopyalanabilme özelliğine sahip bir Prototype sınıfı bulunmaktadır. Bu sınıf Log listeleri ve numara değişkenleri bulunmaktadır. İstemci sınıf  ile log listelerinin Shallow Copy ve Deep Copy ile sınıfın kopyasını oluşturulmuştur.

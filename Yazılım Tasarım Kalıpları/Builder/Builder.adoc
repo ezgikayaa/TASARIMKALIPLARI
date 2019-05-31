@@ -1,0 +1,6 @@
+**Builder Tasarım Deseni**
+
+Bu tasarım deseni ile bir nesneyi, bir sınıfı, aşama aşama farklı özellikleri ile oluşturabiliriz.
+
+Projemizde, yaratılacak nesne Kullanıcı nesnesidir. Kullanıcı sınıfının kurucusu, KullanıcıBuilder ismindeki sınıftır. Kullanıcı kurucusu "adi","email",
+"telefonNo","nick", "cinsiyet" metodları ile nesnenin kademe kademe kurulumuna ve yeni özellikler kazanmasına imkan kılar.Main de Kullanıcı sınıfından oluşturulan nesneleri kayıt edilmek istenen kullanıcı bilgileri girilir , kurucu sınıfa "KullanıcıBuilder" gönderilir ve kullanıcı kademe kademe yaratılır.

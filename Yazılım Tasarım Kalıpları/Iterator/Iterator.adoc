@@ -1,0 +1,8 @@
+**Iterator Tasarım Deseni**,
+
+
+Projemizde Iterator arayüzü ile entry kategorisindeki elemanları elde etmek için kullanılacak metotları tanımlanmıştır.
+
+Container arayüzünde ise Iterator sınıfının hangi metot ile Iterator nesnesini üreteceğini belirtmiş olduk. EntryRepository sınıfı ise içinde entry kategorisindeki elemanları barındıran sınıftır ve Container arayüzünü uygulayarak entry kategorilerinde dolaşacak olan Iterator tipinde nesne örneğini sağlayacağını belirtmiştir.EntryIterator ise Iterator sınıfından türemiş entry listesinin boyutu kadar index sayısı artırılmıştır.Bu sayede bir sonraki entry gidilmiştir.
+
+Main metodunda ise EntryRepository nesnesi oluşturulmuş , içinde barındırdığı entry listesine erişmiştir.

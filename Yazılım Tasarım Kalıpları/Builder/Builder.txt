@@ -1,0 +1,44 @@
+@startuml
+title Class Diagram
+rectangle BuilderPattern {
+class Kullanýcý {
+  - String adi
+  - String email
+  - String telefonNo
+  - String nick
+  - String cinsiyet
+  - int id
+  + Kullanýcý(KullanýcýBuilder kullanýcýBuilder)
+  + String getAdi()
+  + String getEmail()
+  + String getTelefonNo()
+  + String getNick()
+  + String getCinsiyet()
+  + int getÝd() 
+  + String toString()
+  +{static} void main{}
+  
+}
+class KullanýcýBuilder <<static>>{
+  - String adi
+  - String email
+  - String telefonNo
+  - String nick
+  - String cinsiyet
+  - int id
+  + KullanýcýBuilder(String adi, String nick)
+  + KullanýcýBuilder id (int id)
+  + KullanýcýBuilder telefonNo(String telefonNo)
+  + KullanýcýBuilder email(String email)
+  + KullanýcýBuilder cinsiyet(String cinsiyet)
+  + Kullanýcý build()
+  
+}
+
+
+KullanýcýBuilder .right.> Kullanýcý:uses
+
+
+
+
+@enduml

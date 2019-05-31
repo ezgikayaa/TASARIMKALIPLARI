@@ -1,0 +1,5 @@
+**Object Pool Tasarım Deseni**
+
+Projelerimizde sınıfların oluşturulması bazen masraflı olabiliyor. Bellekten gereksiz yer ayırma durumunda performans sorunları ortaya çıkabiliyor. Bu tür performans sorunlarını çözmek için sınıfların yeniden oluşturulmasını engellemek bir çözüm olabilir.Bunun için Object Pool Tasarım Deseni kullanılmaktadır.
+
+Projemzide Entry nesneleri üretip pool listesine eklenmektedir. Daha sonra kullanmak için listeden nesne çağrılmaktadır. Eğer o nesneden yoksa yeniden nesne oluşturması engellenmektedir.

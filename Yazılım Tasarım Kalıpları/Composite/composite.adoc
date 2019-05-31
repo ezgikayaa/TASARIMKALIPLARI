@@ -1,0 +1,8 @@
+**Composite Tasarım Deseni**
+
+Sözlük sisteminde üye ve yönetici şeklinde iki tip kullanıcı vardır. Bir yönetici birden fazla yöneticilere veya üyelere bağlı olabilir. 
+
+Hem Üye, hem de Yönetici sınıfları Kullanıcı sınıfından türemektedir. Ayrıca Yönetici sınıfına da listeyle 0 ya da daha fazla Kullanıcı sınıfı bağlanmaktadır. Kullanıcı sınıfı hem yönetici, hem de üye olduğu için ağaç yapısıyla istenen nesneye bağlanmaktadır. 
+
+Proje de Kullanıcı sınıfının bilgileri gösterilmektedir. Hiyerarşinin en üstünde baş yönetici isminde bir yönetici sınıfı vardır. Bu nesnenin bilgi yazdır metodu çağrıldığında, hiyerarşideki tüm sınıfların bilgi yazdır metotları ağaç yapısı tasarım deseni sayesinde çalışmaktadır.Ağaç yapısı üzerinde dolaşarak, tüm kullanıcıların bilgileri yazılır.
+    

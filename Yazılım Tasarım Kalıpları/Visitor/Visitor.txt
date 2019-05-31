@@ -1,0 +1,53 @@
+@startuml
+title Class Diagram
+rectangle VisitorPattern {
+interface KullaniciVisitor <<interface>> {
+
+  + void ziyaretEt(Uye:üye)
+  + void ziyaretEt(Yönetici:yönetici)
+
+}
+
+class ProfilGoruntuleVisitor  {
+ + void ziyaretEt(Uye:üye)
+  + void ziyaretEt(Yönetici:yönetici)
+
+} 
+class GirisVisitor  {
+ + void ziyaretEt(Uye:üye)
+  + void ziyaretEt(Yönetici:yönetici)
+
+} 
+interface Kullanici <<interface>> {
+
+  + void kabulEt(KullaniciVisitor:visitor)
+ 
+
+}
+
+class Uye  {
+ + void kabulEt(KullaniciVisitor:visitor)
+
+} 
+class Yönetici  {
+  + void kabulEt(KullaniciVisitor:visitor)
+
+}
+class Sozlük <<client>> {
+
+}
+
+
+}
+
+
+
+KullaniciVisitor <|.. ProfilGoruntuleVisitor
+KullaniciVisitor <|.. GirisVisitor 
+Kullanici <|--  Uye
+Kullanici <|--  Yönetici
+Sozlük -left->KullaniciVisitor
+Sozlük -right->Kullanici
+
+
+@enduml

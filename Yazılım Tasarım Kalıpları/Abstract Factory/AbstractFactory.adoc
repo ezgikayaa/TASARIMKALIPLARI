@@ -1,0 +1,5 @@
+**Abstract Factory Tasarım Deseni**
+
+İstemci sınıf, çeşitli kategorideki sınıflara ihtiyaç duyar. Bu sınıflar, sistemde alt/üst sınıf hiyerarşileri şeklinde bulunurlar. "Soyut Fabrika" tasarım deseni bu karmaşık ve farklı hiyerarşideki sınıfların yaratılma sorumluluğunu çeşitli fabrika sınıflarına verir. 
+
+Projemizde  Kullanıcılar adında abstract sınıfı tanımlanmıştır. Bu sınıftan türeyen Üye ve Yönetici sınıfı var.Kullanıcı  üretmek için  UyeFactory ve YoneticiFactory adında  fabrika sınıfları tanımlanmıştır. . KullanıcılarFactory sınıfı üzerinden  istenilen kullanıcı nesnesi üretilmiştir.

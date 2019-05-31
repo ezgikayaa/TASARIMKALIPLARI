@@ -1,0 +1,13 @@
+
+**Factory Tasarım Deseni**
+Fabrika tasarım deseni, nesne yaratma sorumluluğunun bir yordama verilmesidir.
+
+Projemizde Entry ile ilgili sıralama işlemi yapılmıtştır.Burada entryler sıralanırken hangş entry kategorisine ait olacağının belirlenmesidir.Proje de siyaset,spor,seyahat,bilim ve edebiyat tipinde 5 kategori vardır. Bu sınıflar EntryKategorisi sınıfından türetilmiştir.Bu sınıflarda Sırala isminde metotlar bulunur. 
+Entry Kategori tipindeki nesnenin yaratılma sorumluluğu EntryFactory sınıfının createEntry isimli metoduna verilmiştir. Bu yordam Fabrika metodur.
+
+
+
+
+
+
+ 
